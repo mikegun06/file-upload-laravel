@@ -13,13 +13,10 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/home', [PostController::class, 'index'])->name('home');
 Route::get('posts/create', [PostController::class, 'create']);
-
+Route::post('post', [PostController::class, 'store']);
 Route::get('posts/{post}/edit', [PostController::class, 'edit']);
 Route::get('posts/{post}', [PostController::class, 'show']);
 

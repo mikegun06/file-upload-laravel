@@ -17,21 +17,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
-                        <tr>
-                            <td>a</td>
-                            <td>b</td>
-                            <td>c</td>
-                            <td>d</td>
-                            <td>
-                            <a href="posts/id" class="btn btn-primary">Show</a>
-                            <a href="posts/id/edit" class="btn btn-primary">Edit</a>
-                            <form action="posts/id" method="post" class="d-inline">
-                                
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
-                            </td>
-                        </tr>
+                       @foreach ($posts as $p)
+                       <tr>
+                           <td>{{ $p->id }}</td>
+                           <td>{{ $p->title }}</td>
+                           <td>{{ $p->body }}</td>
+                           <td>{{ $p->published_at }}</td>
+                           <td>
+                           <a href="posts/id" class="btn btn-primary">Show</a>
+                           <a href="posts/id/edit" class="btn btn-primary">Edit</a>
+                           <form action="posts/id" method="post" class="d-inline">
+                               
+                               <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                           </td>
+                       </tr>
+                       @endforeach
                        
                     </tbody>
                 </table>
